@@ -26,39 +26,43 @@ class CustomCrop extends Component {
         this.state = {
             ...this.state,
             topLeft: new Animated.ValueXY(
-                props.rectangleCoordinates
-                    ? this.imageCoordinatesToViewCoordinates(
-                          props.rectangleCoordinates.topLeft,
-                          true,
-                      )
-                    : { x: 100, y: 100 },
+                props.rectangleCoordinates.topLeft
+                // props.rectangleCoordinates
+                //     ? this.imageCoordinatesToViewCoordinates(
+                //           props.rectangleCoordinates.topLeft,
+                //           true,
+                //       )
+                //     : { x: 100, y: 100 },
             ),
             topRight: new Animated.ValueXY(
-                props.rectangleCoordinates
-                    ? this.imageCoordinatesToViewCoordinates(
-                          props.rectangleCoordinates.topRight,
-                          true,
-                      )
-                    : { x: Dimensions.get('window').width - 100, y: 100 },
+                props.rectangleCoordinates.topRight
+                // props.rectangleCoordinates
+                //     ? this.imageCoordinatesToViewCoordinates(
+                //           props.rectangleCoordinates.topRight,
+                //           true,
+                //       )
+                //     : { x: Dimensions.get('window').width - 100, y: 100 },
             ),
             bottomLeft: new Animated.ValueXY(
-                props.rectangleCoordinates
-                    ? this.imageCoordinatesToViewCoordinates(
-                          props.rectangleCoordinates.bottomLeft,
-                          true,
-                      )
-                    : { x: 100, y: this.state.viewHeight - 100 },
+                props.rectangleCoordinates.bottomLeft
+                // props.rectangleCoordinates
+                //     ? this.imageCoordinatesToViewCoordinates(
+                //           props.rectangleCoordinates.bottomLeft,
+                //           true,
+                //       )
+                //     : { x: 100, y: this.state.viewHeight - 100 },
             ),
             bottomRight: new Animated.ValueXY(
-                props.rectangleCoordinates
-                    ? this.imageCoordinatesToViewCoordinates(
-                          props.rectangleCoordinates.bottomRight,
-                          true,
-                      )
-                    : {
-                          x: Dimensions.get('window').width - 100,
-                          y: this.state.viewHeight - 100,
-                      },
+                props.rectangleCoordinates.bottomRight
+                // props.rectangleCoordinates
+                //     ? this.imageCoordinatesToViewCoordinates(
+                //           props.rectangleCoordinates.bottomRight,
+                //           true,
+                //       )
+                //     : {
+                //           x: Dimensions.get('window').width - 100,
+                //           y: this.state.viewHeight - 100,
+                //       },
             ),
         };
         this.state = {
@@ -159,7 +163,7 @@ class CustomCrop extends Component {
         return (
             <View
                 style={{
-                    height: this.state.viewHeight,
+                    flex: 1,
                     alignItems: 'center',
                     justifyContent: 'flex-end',
                 }}
