@@ -26,7 +26,6 @@ class CustomCrop extends Component {
         this.state = {
             ...this.state,
             topLeft: new Animated.ValueXY(
-                // props.rectangleCoordinates.topLeft
                 props.rectangleCoordinates
                     ? this.imageCoordinatesToViewCoordinates(
                           props.rectangleCoordinates.topLeft,
@@ -35,7 +34,6 @@ class CustomCrop extends Component {
                     : { x: 100, y: 100 },
             ),
             topRight: new Animated.ValueXY(
-                // props.rectangleCoordinates.topRight
                 props.rectangleCoordinates
                     ? this.imageCoordinatesToViewCoordinates(
                           props.rectangleCoordinates.topRight,
@@ -44,7 +42,6 @@ class CustomCrop extends Component {
                     : { x: Dimensions.get('window').width - 100, y: 100 },
             ),
             bottomLeft: new Animated.ValueXY(
-                // props.rectangleCoordinates.bottomLeft
                 props.rectangleCoordinates
                     ? this.imageCoordinatesToViewCoordinates(
                           props.rectangleCoordinates.bottomLeft,
@@ -53,7 +50,6 @@ class CustomCrop extends Component {
                     : { x: 100, y: this.state.viewHeight - 100 },
             ),
             bottomRight: new Animated.ValueXY(
-                // props.rectangleCoordinates.bottomRight
                 props.rectangleCoordinates
                     ? this.imageCoordinatesToViewCoordinates(
                           props.rectangleCoordinates.bottomRight,
@@ -145,8 +141,8 @@ class CustomCrop extends Component {
 
     imageCoordinatesToViewCoordinates(corner) {
         return {
-            x: (corner.x * this.state.width) / Dimensions.get('window').width*0.8,
-            y: (corner.y * this.state.height) / this.state.viewHeight*0.81,
+            x: (corner.x * Dimensions.get('window').width) / this.state.width,
+            y: (corner.y * this.state.viewHeight) / this.state.height,
         };
     }
 
